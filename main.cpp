@@ -1,7 +1,6 @@
 #include <iostream>
 #include <locale>
 #include <codecvt>
-#include <unordered_map>
 
 using namespace std;
 
@@ -20,7 +19,7 @@ int main()
     for(auto c : s){
         if(hasNumber(c)) nNum++;
     }
-    if(nNum == strLen) wcout<<"Número entero";
+    if(nNum == strLen) wcout<<"NÃºmero entero";
     if(nNum == 0) wcout<<"Palabra";
     else if(nNum < strLen) wcout<<"Compuesta";
 }
