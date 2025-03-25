@@ -5,9 +5,9 @@
 extern FILE *yyin;
 %}
 %%
-\/\/.* { printf("comentario detectado: %s\n", yytext); }
-\/\*[^*]*\*+([^/*][^*]*\*+)*\/ { printf("comentario detectado: %s\n", yytext); }
-\"([^\"\\]|\\.)*\" { printf("Texto en pantalla: %s\n", yytext); }
+\/\/.* { printf("comentario RECONOCIDO: %s\n", yytext); }
+\/\*[^*]*\*+([^/*][^*]*\*+)*\/ { printf("comentario RECONOCIDO: %s\n", yytext); }
+\"([^\"\\]|\\.)*\" { printf("Texto en pantalla RECONOCIDO: %s\n", yytext); }
 . { }
 %%
 int main() {
