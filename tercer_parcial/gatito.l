@@ -50,7 +50,7 @@ return 1;
 yyin = file_7;
 yylex();
 fclose(file_7);
-printf("TOTAL DE LINEAS: %d\n", COUNT_NL-1);
+printf("TOTAL DE LINEAS: %d\n", COUNT_NL);
 printf("TOTAL DE PALABRAS: %d\n", COUNT_PALABRA);
 printf("TOTAL DE CARACTERES: %d\n", COUNT_CHAR);
 printf("TOTAL DE PALABRAS NI...: %d\n", COUNT_NI);
