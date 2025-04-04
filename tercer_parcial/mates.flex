@@ -18,24 +18,22 @@ int COUNT_JO = 0;
 int COUNT_DIGITS = 0;
 %}
 
-ACCENTS [áéíóúüñÁÉÍÓÚÜÑ]
-WORDS [áéíóúüñÁÉÍÓÚÜÑa-zA-Z0-9]+
+DIGITS [0-9]+
 CHARACTERS [:¡,.!" ]
 NI [Nn][Ii][áéíóúüñÁÉÍÓÚÜÑa-zA-Z]*
-NUM [Nn][UuúÚ][mM][áéíóúüñÁÉÍÓÚÜÑa-zA-Z]*
+NUM [Nn][úÚ][mM][a-zA-Z]*
 BTO [bB][áéíóúüñÁÉÍÓÚÜÑa-zA-Z]*[Tt][OoóÓ]
 JO [áéíóúüñÁÉÍÓÚÜÑa-zA-Z]*[Jj][OoóÓ]
-DIGITS [0-9]
+WORDS [áéíóúüñÁÉÍÓÚÜÑa-zA-Z0-9]+
 %%
-{ACCENTS} {COUNT_ACC++;}
-{WORDS} {COUNT_PALABRA++; COUNT_CHAR+= yyleng;}
 \n {COUNT_NL++;}
+"números" {COUNT_NUM++; COUNT_CHAR+= yyleng;}
+{NI} {COUNT_NI++; COUNT_CHAR+= yyleng;}
+{BTO} {COUNT_BTO++; COUNT_CHAR+= yyleng;}
+{JO} {COUNT_JO++; COUNT_CHAR+= yyleng;}
+{DIGITS} {COUNT_DIGITS++; COUNT_CHAR+= yyleng;}
+{WORDS} {COUNT_PALABRA++; COUNT_CHAR+= yyleng;}
 {CHARACTERS} {COUNT_CHAR++;}
-{NI} {COUNT_NI++;}
-{NUM} {COUNT_NUM++;}
-{BTO} {COUNT_BTO++;}
-{JO} {COUNT_JO++;}
-{DIGITS} {COUNT_DIGITS++;}
 %%
 int main()
 {
@@ -51,11 +49,12 @@ yyin = file_7;
 yylex();
 fclose(file_7);
 printf("TOTAL DE LINEAS: %d\n", COUNT_NL);
-printf("TOTAL DE PALABRAS: %d\n", COUNT_PALABRA);
+printf("TOTAL DE PALABRAS: %d\n", COUNT_PALABRA+COUNT_NI+COUNT_NUM+COUNT_BTO+COUNT_JO+COUNT_DIGITS);
 printf("TOTAL DE CARACTERES: %d\n", COUNT_CHAR);
 printf("TOTAL DE PALABRAS NI...: %d\n", COUNT_NI);
 printf("TOTAL DE PALABRAS NUM...: %d\n", COUNT_NUM);
 printf("TOTAL DE PALABRAS B...TO: %d\n", COUNT_BTO);
-printf("TOTAL DE DIGITOS: %d\n", COUNT_NI);
+printf("TOTAL DE PALABRAS ...JO: %d\n", COUNT_JO);
+printf("TOTAL DE DIGITOS: %d\n", COUNT_DIGITS);
 return 0;
 }
