@@ -1,0 +1,106 @@
+********************************************
+ENTRADAS
+******************************************
+select * from table1 where name = francesco
+delete from table1 where name = francesco
+select name, surname, VAT from taxes, family where age < 30 or age = 55
+select * from table1, table2, table3, table4 where salaries < 1000
+delete from estudiantes
+delete from
+insert into materias (id, nombre, docente, semestre) values (1026, 'Automatas y compiladores', 'Dr. Cornejo', 6)
+insert alumnos (id, nombre) values (476602, 'Ashley')
+insert into alumnos (id, nombre)values (476602, 'Ashley')
+delete from estudiantes where edad>18 and id<1000
+select col1, col2 from tab1 where name = francesco
+select col1, col2 tab1 where name = francesco
+select col1, col2 from tab1 name > 3948
+select col1, col2 from tab1 where name > 1jk
+select name, surname, gender, fiscalcode from taxes, family where age > 18
+select id, prod, date, quantity from products where id > 100 and quantity <10
+select id, name, last, address from users where name = ashley
+insert into grades (id, avg, final, estimate) values (1, 8, 9, 8)
+insert into students (id, name, age) values (1, 'Gael', 21)
+
+************************************************
+SALIDAS
+************************************************
+Row 1 is correct 
+SELECT statement detected 
+columns: ALL
+tables: table1
+
+Row #2 is correct 
+DELETE statement detected 
+tables: table1
+
+Row 3 is correct 
+SELECT statement detected 
+columns: name, surname, VAT
+tables: taxes, family
+
+Row 4 is correct 
+SELECT statement detected 
+columns: ALL
+tables: table1, table2, table3, table4
+
+Row #5 is correct 
+DELETE statement detected 
+tables: estudiantes
+
+  --ERROR--  syntax error
+
+Row #7 is correct 
+ INSERT statement detected
+table: materias
+ columns: id, nombre, docente, semestre
+values: 1026, 'Automatas y compiladores', 'Dr. Cornejo', 6
+
+  --ERROR--  syntax error
+
+Row #9 is correct 
+ INSERT statement detected
+table: alumnos
+ columns: id, nombre
+values: 476602, 'Ashley'
+
+Row #10 is correct 
+DELETE statement detected 
+tables: estudiantes
+
+Row 11 is correct 
+SELECT statement detected 
+columns: col1, col2
+tables: tab1
+
+  --ERROR--  syntax error
+
+  --ERROR--  syntax error
+
+  --ERROR--  syntax error
+
+Row 15 is correct 
+SELECT statement detected 
+columns: name, surname, gender, fiscalcode
+tables: taxes, family
+
+Row 16 is correct 
+SELECT statement detected 
+columns: id, prod, date, quantity
+tables: products
+
+Row 17 is correct 
+SELECT statement detected 
+columns: id, name, last, address
+tables: users
+
+Row #18 is correct 
+ INSERT statement detected
+table: grades
+ columns: id, avg, final, estimate
+values: 1, 8, 9, 8
+
+Row #19 is correct 
+ INSERT statement detected
+table: students
+ columns: id, name, age
+values: 1, 'Gael', 21
