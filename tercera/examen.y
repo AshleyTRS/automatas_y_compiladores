@@ -19,12 +19,11 @@ statement : expression EOL { printf("= %d\n", $1);}
 	  ;
 
 expression : NUM	{ $$ = $1; printf("numero: %d\n", $$);}
-           | expression TIMES expression { $$ = $1 + $3; printf("MUTLIPLICACION*: %d\n", $$);}
+           | expression TIMES expression { $$ = $1 * $3; printf("MUTLIPLICACION*: %d\n", $$);}
 	   ;
 
 %%
 
 int main () {
 yyparse();
-return 0;
 }
